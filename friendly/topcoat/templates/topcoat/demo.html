@@ -1,0 +1,82 @@
+{% extends "friendly_base.html" %}
+
+{% load friendly_topcoat %}
+
+{% block head_supplement %}
+{% endblock %}
+
+{% block content %}
+<article id="button" class="component">
+    <header><h2>Button</h2></header>
+    <section class="component">
+        {% topcoat_button text="Button" %}
+        {% topcoat_button text="Button" disabled=True %}
+    </section>
+</article>
+
+<article id="quiet-button" class="component">
+    <header><h2>Quiet Button</h2></header>
+    <section class="component">
+        {% topcoat_button text="Button" quiet=True %}
+        {% topcoat_button text="Button" quiet=True disabled=True %}
+    </section>
+</article>
+
+<article id="large-button" class="component">
+    <header><h2>Large Button</h2></header>
+    <section class="component">
+        {% topcoat_button text="Button" large=True %}
+        {% topcoat_button text="Button" large=True disabled=True %}
+    </section>
+</article>
+
+<article id="large-quiet-button" class="component">
+    <header><h2>Large Quiet Button</h2></header>
+    <section class="component">
+        {% topcoat_button text="Button" large=True quiet=True %}
+        {% topcoat_button text="Button" large=True quiet=True disabled=True %}
+    </section>
+</article>
+
+<article id="cta-button" class="component">
+    <header><h2>Call-to-action Button</h2></header>
+    <section class="component">
+        {% topcoat_button text="Button" cta=True %}
+        {% topcoat_button text="Button" cta=True disabled=True %}
+    </section>
+</article>
+
+<article id="large-cta-button" class="component">
+    <header><h2>Large Call-to-action Button</h2></header>
+    <section class="component">
+        {% topcoat_button text="Button" large=True cta=True %}
+        {% topcoat_button text="Button" large=True cta=True disabled=True %}
+    </section>
+</article>
+
+<article id="checkbox" class="component">
+    <header><h2>Checkbox</h2></header>
+    <section class="component">
+        {% topcoat_checkbox text="Check this out" %}
+        <br/><br/>
+        {% topcoat_checkbox text="Check this out" disabled=True %}
+    </section>
+</article>
+
+<article id="icon-button" class="component">
+    <header><h2>Icon button</h2></header>
+    <section class="component">
+        {% topcoat_icon_button %}<br/><br/>
+        {% topcoat_icon_button disabled=True%}<br/><br/>
+
+        {% topcoat_icon_button quiet=True %}<br/><br/>
+        {% topcoat_icon_button quiet=True disabled=True%}<br/><br/>
+
+        {% topcoat_icon_button large=True %}<br/><br/>
+        {% topcoat_icon_button large=True disabled=True%}<br/><br/>
+
+        {% topcoat_icon_button quiet=True large=True %}<br/><br/>
+        {% topcoat_icon_button quiet=True large=True disabled=True%}<br/><br/>
+    </section>
+</article>
+{% endblock %}
