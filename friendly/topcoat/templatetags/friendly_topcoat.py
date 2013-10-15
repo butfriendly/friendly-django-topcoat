@@ -12,9 +12,39 @@ from django.conf import settings
 from django.utils.safestring import mark_safe
 from django.utils.html import escape
 
-TOPCOAT_VERSION = '0.7.5'
-
 register = template.Library()
+
+
+@register.simple_tag
+def topcoat_icons_stylesheet_url():
+    """
+    URL to Topcoat Icons Stylesheet (CSS)
+    """
+    return '%stopcoat-icons/font/icomatic.css' % settings.STATIC_URL
+
+
+@register.simple_tag
+def topcoat_icons_script_url():
+    """
+    URL to Topcoat Icons Scripts
+    """
+    return '%stopcoat-icons/font/icomatic.js' % settings.STATIC_URL
+
+
+@register.simple_tag
+def topcoat_icons_stylesheet_tag():
+    """
+    HTML tag to insert Topcoat Icons stylesheet
+    """
+    return u'<link rel="stylesheet" href="%s">' % topcoat_icons_stylesheet_url()
+
+
+@register.simple_tag
+def topcoat_icons_script_tag():
+    """
+    HTML tag to insert Topcoat Icons stylesheet
+    """
+    return u'<script type="text/javascript src="%s"></script>' % topcoat_icons_script_url()
 
 
 @register.simple_tag
@@ -22,7 +52,7 @@ def topcoat_stylesheet_url(device='desktop', variant='dark', minified=True):
     """
     URL to Topcoat Stylesheet (CSS)
     """
-    return '%stopcoat-%s/css/topcoat-%s-%s.%scss' % (settings.STATIC_URL, TOPCOAT_VERSION, device, variant, 'min.' if minified else '')
+    return '%stopcoat/css/topcoat-%s-%s.%scss' % (settings.STATIC_URL, device, variant, 'min.' if minified else '')
 
 
 @register.simple_tag
@@ -79,7 +109,7 @@ def topcoat_checkbox(text, **kwargs):
 
 
 @register.inclusion_tag('topcoat/partials/icon_button.html')
-def topcoat_icon_button(**kwargs):
+def topcoat_icon_button(icon, **kwargs):
     """
     Render a button
     """
@@ -96,6 +126,7 @@ def topcoat_icon_button(**kwargs):
     icon_class += '--large' if is_large else ''
 
     return {
+        'icon': icon,
         'button_disabled': button_disabled,
         'button_class': button_class,
         'icon_class': icon_class
@@ -175,19 +206,3 @@ def html_attrs(attrs):
     for name, value in attrs.items():
         pairs.append(u'%s="%s"' % (escape(name), escape(value)))
     return mark_safe(u' '.join(pairs))
-
-
-
-
-@register.inclusion_tag("bootstrap_toolkit/icon.html")
-def bootstrap_icon(icon, **kwargs):
-    """
-    Render an icon
-    """
-    icon_class = 'icon-' + icon
-    if kwargs.get('inverse'):
-        icon_class += ' icon-white'
-    return {
-        'icon_class': icon_class,
-    }
-

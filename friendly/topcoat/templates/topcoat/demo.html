@@ -3,9 +3,24 @@
 {% load friendly_topcoat %}
 
 {% block head_supplement %}
+    {% topcoat_stylesheet_tag %}
+    {% topcoat_icons_stylesheet_tag %}
+    {% topcoat_icons_script_tag %}
 {% endblock %}
 
 {% block content %}
+<ul class='icons'>
+
+    <li>
+        <div class='icomatic icon'>laptop</div>
+    </li>
+
+    <li>
+        <div class='icomatic icon'>phone</div>
+    </li>
+
+</ul>
+
 <article id="button" class="component">
     <header><h2>Button</h2></header>
     <section class="component">
@@ -66,17 +81,20 @@
 <article id="icon-button" class="component">
     <header><h2>Icon button</h2></header>
     <section class="component">
-        {% topcoat_icon_button %}<br/><br/>
-        {% topcoat_icon_button disabled=True%}<br/><br/>
+        {% topcoat_icon_button "laptop" %}<br/><br/>
+        {% topcoat_icon_button "laptop" disabled=True%}<br/><br/>
 
-        {% topcoat_icon_button quiet=True %}<br/><br/>
-        {% topcoat_icon_button quiet=True disabled=True%}<br/><br/>
+        {% topcoat_icon_button "phone" %}<br/><br/>
+        {% topcoat_icon_button "phone" disabled=True%}<br/><br/>
 
-        {% topcoat_icon_button large=True %}<br/><br/>
-        {% topcoat_icon_button large=True disabled=True%}<br/><br/>
+        {% topcoat_icon_button "phone" quiet=True %}<br/><br/>
+        {% topcoat_icon_button "phone" quiet=True disabled=True%}<br/><br/>
 
-        {% topcoat_icon_button quiet=True large=True %}<br/><br/>
-        {% topcoat_icon_button quiet=True large=True disabled=True%}<br/><br/>
+        {% topcoat_icon_button "phone" large=True %}<br/><br/>
+        {% topcoat_icon_button "phone" large=True disabled=True%}<br/><br/>
+
+        {% topcoat_icon_button "phone" quiet=True large=True %}<br/><br/>
+        {% topcoat_icon_button "phone" quiet=True large=True disabled=True%}<br/><br/>
     </section>
 </article>
 {% endblock %}
