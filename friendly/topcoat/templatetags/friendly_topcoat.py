@@ -9,6 +9,7 @@ from django.template import Context
 from django.template.loader import get_template
 from django import template
 from django.conf import settings
+from django.templatetags.static import static
 from django.utils.safestring import mark_safe
 from django.utils.html import escape
 
@@ -20,7 +21,7 @@ def topcoat_icons_stylesheet_url():
     """
     URL to Topcoat Icons Stylesheet (CSS)
     """
-    return '%stopcoat-icons/font/icomatic.css' % settings.STATIC_URL
+    return static('topcoat-icons/font/icomatic.css')
 
 
 @register.simple_tag
@@ -28,7 +29,7 @@ def topcoat_icons_script_url():
     """
     URL to Topcoat Icons Scripts
     """
-    return '%stopcoat-icons/font/icomatic.js' % settings.STATIC_URL
+    return static('topcoat-icons/font/icomatic.js')
 
 
 @register.simple_tag
