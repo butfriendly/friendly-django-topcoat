@@ -1,0 +1,147 @@
+{% load friendly_topcoat %}<!DOCTYPE html>
+<html LANG="{{ LANG }}" dir="{{ DIR }}">
+<head>
+    <meta charset="utf-8">
+    <title>friendly-django-topcoat</title>
+    <meta name="viewport" content="width=960" />
+
+    <!--[if IE]><meta http-equiv="imagetoolbar" content="false" /><![endif]-->
+    <!--[if lte IE 7]><link href="{{ MEDIA_URL }}core/css/ie.css" media="screen" rel="stylesheet" type="text/css"><![endif]-->
+
+    <link href="{{ MEDIA_URL }}core/img/favicon.png" rel="icon" type="image/png" />
+    <link href="{{ MEDIA_URL }}core/img/mobile_icon.png" rel="apple-touch-icon" type="image/png" />
+
+    <style>
+        html, body{
+            margin:0;
+            padding:0;
+            height: 100%;
+        }
+        body {
+            font-family: source-sans-pro, sans-serif;
+            font-size: 14px; 
+            position: relative;
+            -webkit-font-smoothing: antialiased;
+        }
+        #container { 
+            width: 720px; 
+            margin: 0 auto; 
+            overflow-x: hidden;
+            background: inherit;
+            position: relative;
+        }
+    </style>
+    {% topcoat_stylesheet_tag %}
+    {% topcoat_icons_stylesheet_tag %}
+    {% topcoat_icons_script_tag %}
+</head>
+<body class="dark">
+    <div id="container">
+        <h1>Django Topcoat</h1>
+        <ul class='icons'>
+            <li>
+                <div class='icomatic icon'>laptop</div>
+            </li>
+
+            <li>
+                <div class='icomatic icon'>phone</div>
+            </li>
+        </ul>
+
+        <article id="button" class="component">
+            <header><h2>Button</h2></header>
+            <section class="component">
+                {% topcoat_button text="Button" %}
+                {% topcoat_button text="Button" disabled=True %}
+            </section>
+        </article>
+
+        <article id="quiet-button" class="component">
+            <header><h2>Quiet Button</h2></header>
+            <section class="component">
+                {% topcoat_button text="Button" quiet=True %}
+                {% topcoat_button text="Button" quiet=True disabled=True %}
+            </section>
+        </article>
+
+        <article id="large-button" class="component">
+            <header><h2>Large Button</h2></header>
+            <section class="component">
+                {% topcoat_button text="Button" large=True %}
+                {% topcoat_button text="Button" large=True disabled=True %}
+            </section>
+        </article>
+
+        <article id="large-quiet-button" class="component">
+            <header><h2>Large Quiet Button</h2></header>
+            <section class="component">
+                {% topcoat_button text="Button" large=True quiet=True %}
+                {% topcoat_button text="Button" large=True quiet=True disabled=True %}
+            </section>
+        </article>
+
+        <article id="cta-button" class="component">
+            <header><h2>Call-to-action Button</h2></header>
+            <section class="component">
+                {% topcoat_button text="Button" cta=True %}
+                {% topcoat_button text="Button" cta=True disabled=True %}
+            </section>
+        </article>
+
+        <article id="large-cta-button" class="component">
+            <header><h2>Large Call-to-action Button</h2></header>
+            <section class="component">
+                {% topcoat_button text="Button" large=True cta=True %}
+                {% topcoat_button text="Button" large=True cta=True disabled=True %}
+            </section>
+        </article>
+
+        <article id="checkbox" class="component">
+            <header><h2>Checkbox</h2></header>
+            <section class="component">
+                {% topcoat_checkbox text="Check this out" %}
+                <br/><br/>
+                {% topcoat_checkbox text="Check this out" disabled=True %}
+            </section>
+        </article>
+
+        <article id="icon-button" class="component">
+            <header><h2>Icon button</h2></header>
+            <section class="component">
+                {% topcoat_icon_button "laptop" %}<br/><br/>
+                {% topcoat_icon_button "laptop" disabled=True%}<br/><br/>
+
+                {% topcoat_icon_button "phone" %}<br/><br/>
+                {% topcoat_icon_button "phone" disabled=True%}<br/><br/>
+
+                {% topcoat_icon_button "phone" quiet=True %}<br/><br/>
+                {% topcoat_icon_button "phone" quiet=True disabled=True%}<br/><br/>
+
+                {% topcoat_icon_button "phone" large=True %}<br/><br/>
+                {% topcoat_icon_button "phone" large=True disabled=True%}<br/><br/>
+
+                {% topcoat_icon_button "phone" quiet=True large=True %}<br/><br/>
+                {% topcoat_icon_button "phone" quiet=True large=True disabled=True%}<br/><br/>
+            </section>
+        </article>
+
+        <article id="radio-button" class="component">
+            <header><h2>Radio button</h2></header>
+            <section class="component">
+                {% topcoat_radio_button %}<br/><br/>
+                {% topcoat_radio_button disabled=True %}<br/><br/><br/>
+
+                {% topcoat_radio_button label="Hello world" %}<br/><br/>
+                {% topcoat_radio_button label="Hello world" disabled=True %}<br/><br/><br/>
+
+                {% topcoat_radio_button label="Hello world" align="left" %}<br/><br/>
+                {% topcoat_radio_button label="Hello world" align="left" disabled=True %}<br/><br/><br/>
+
+                {% topcoat_radio_button label="Hello world" align="right" %}<br/><br/>
+                {% topcoat_radio_button label="Hello world" align="right" disabled=True %}<br/><br/><br/>
+            </section>
+        </article>
+    </div>
+</body>
+</html>
+
